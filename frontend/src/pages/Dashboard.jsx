@@ -33,7 +33,7 @@ export default function Dashboard() {
   // Fetch projects from backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/projects")
+      .get("https://task-manager-bsu9.onrender.com/api/projects")
       .then((res) => setProjects(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -57,7 +57,7 @@ export default function Dashboard() {
     if (editProject) {
       // Update existing project
       axios
-        .put(`http://localhost:5000/api/projects/${editProject._id}`, project)
+        .put(`https://task-manager-bsu9.onrender.com/api/projects/${editProject._id}`, project)
         .then((res) => {
           setProjects(
             projects.map((p) => (p._id === editProject._id ? res.data : p))
@@ -69,7 +69,7 @@ export default function Dashboard() {
     } else {
       // Create new project
       axios
-        .post("http://localhost:5000/api/projects", project)
+        .post("https://task-manager-bsu9.onrender.com/api/projects", project)
         .then((res) => {
           setProjects([...projects, res.data]);
           setOpenForm(false);
@@ -80,7 +80,7 @@ export default function Dashboard() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/api/projects/${id}`)
+      .delete(`https://task-manager-bsu9.onrender.com/api/projects/${id}`)
       .then(() => {
         setProjects(projects.filter((p) => p._id !== id));
       })

@@ -9,7 +9,7 @@ export default function Register({ setToken }) {
   const navigate = useNavigate();
   const handleRegister = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/register", {
+      const res = await fetch("https://task-manager-bsu9.onrender.com/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
